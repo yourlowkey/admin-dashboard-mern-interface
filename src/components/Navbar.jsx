@@ -17,7 +17,7 @@ import {
   InputBase,
 } from "@mui/material";
 import FlexBetween from "./FlexBetween";
-const Navbar = () => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
   return (
@@ -31,7 +31,7 @@ const Navbar = () => {
           <IconButton
             aria-label=""
             onClick={() => {
-              console.log("open/close sidebar");
+              setIsSidebarOpen(!isSidebarOpen);
             }}
           >
             <MenuIcon />
@@ -40,7 +40,7 @@ const Navbar = () => {
             backgroundColor={theme.palette.background.alt}
             borderRadius="9px"
             gap="3rem"
-            p="0.1rem 1.5 rem"
+            p="0.1rem 1.5rem"
           >
             <InputBase placeholder="Search..." />
             <IconButton>
